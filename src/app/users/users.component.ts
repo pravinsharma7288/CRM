@@ -18,7 +18,6 @@ export class UsersComponent implements OnInit {
        console.log(this.userList,"ghhsssgfg");
       });
   }
-
   ngOnInit() {
   }
 
