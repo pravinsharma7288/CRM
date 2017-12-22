@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rental Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body >
+  <div class="container" >
+    <div class="col-md-4"></div>
+     <div class="col-md-4">
+      <form  #form="ngForm"  (ngSubmit)='valid(form)' >      
+        <h3> User Registration Page: </h3>
+        <!-- <pre>{{form.value | json}}</pre> -->
+        <div class="form-group ">
+          <label>Full Name :  </label>
+          <input class="form-control" ngModel name="fullName" placeholder="Full Name">
+        </div>
+        <div class="form-group">
+          <label>Email : </label>
+          <input  name="email" ngModel  class="form-control" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label>Mobile# : </label>
+          <input name="mobile"    ngModel  class="form-control" placeholder="Mobile#">
+        </div>
+        <div class="form-group">
+          <label>Property Address :  </label>  
+          <input name="propertyAdd"    ngModel  class="form-control" placeholder="Property Address">
+        </div>
+        <div class="form-group">
+          <label>Cities : </label>  
+          <select name="city"  ngModel  class="form-control" placeholder="City" >
+            <option *ngFor="let city of cities"  [value]="city.name">{{city.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>State : </label> 
+          <input type="text" name="state"  ngModel  class="form-control" placeholder="State">
+        </div>
+        <div class="form-group text-right">
+           <button class="btn btn-primary ">submit</button> 
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4">
+       <div class="form-group">
+        <app-users></app-users>         
+       </div>
+    </div>
+  </div>
+</body>
+</html>
+
