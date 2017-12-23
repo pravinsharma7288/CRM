@@ -13,7 +13,7 @@ export class UsersComponent implements OnInit {
  userList : userData[] = [];
  loadPage(){
   console.log(".....................sgs");
- }
+ }  
   constructor(private http: Http) { 
 	  http.get(this.apiUrl).map((res:Response)=>res.json()).subscribe(data => {
         //console.log(data);

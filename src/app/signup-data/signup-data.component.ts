@@ -15,6 +15,7 @@ export class SignupDataComponent implements OnInit {
   details : signupElement = {
     fullName:'',
     email:'',
+    password:'',
     mobile:0,
     propertyAdd:'',
     city:'',

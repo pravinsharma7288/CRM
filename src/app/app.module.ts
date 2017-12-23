@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { SignupDataComponent } from './signup-data/signup-data.component';
 import { UsersComponent } from './users/users.component';
-import { RouterModule } from '@angular/router';
+import { appRouterModule } from './app.routes';
+
 
 @NgModule({
   declarations: [
@@ -17,9 +18,12 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule
+    appRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+}
