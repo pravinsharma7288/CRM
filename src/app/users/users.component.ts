@@ -11,13 +11,16 @@ import 'rxjs/add/operator/map';
 export class UsersComponent implements OnInit {
  private apiUrl = "http://localhost:8888/user"
  userList : userData[] = [];
+ loadPage(){
+  console.log(".....................sgs");
+ }
   constructor(private http: Http) { 
 	  http.get(this.apiUrl).map((res:Response)=>res.json()).subscribe(data => {
         //console.log(data);
        this.userList = data;
-       console.log(this.userList,"ghhsssgfg");
       });
   }
+
   ngOnInit() {
   }
 

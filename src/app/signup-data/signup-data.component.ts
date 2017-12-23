@@ -29,8 +29,9 @@ export class SignupDataComponent implements OnInit {
       let options = new RequestOptions({ headers: headers });
       this.http.post(this.apiUrl,form.value,options).map((res:Response)=>res.json()).subscribe(data => {
         console.log(data);
+
       });
-      
+       form.reset();      
       //console.log(form.value);
       //this.details.fullName = form.value.fullName;
       //this.details.email = form.value.email;

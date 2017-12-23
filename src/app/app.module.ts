@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { SignupDataComponent } from './signup-data/signup-data.component';
 import { UsersComponent } from './users/users.component';
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { UsersComponent } from './users/users.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

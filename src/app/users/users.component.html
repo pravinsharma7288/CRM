@@ -4,9 +4,37 @@
 	<title>USERS</title>
 </head>
 <body>
+	<div class="container" >
        <h3>Users </h3>
-       <div>
- 	        <pre>{{userList | json}}</pre>
-       </div>
+	 	 <!-- <pre>{{userList | json}}</pre> -->
+       <ul class=" col-md-12 list-group">
+       	<li class="list-group-item col-md-4" *ngFor="let user of userList">
+	 	      <div>
+	 	      	<label>Name :	</label>
+		       	   <span >{{user.name}}</span>
+	       	   </div>
+	       	   <div>
+	       	   	<label>Email :</label>
+		       	  <span>{{user.email}}</span>
+	       	   </div>
+	       	   <div>
+	       	   	<label>Mobile :</label>
+		       	   <span>{{user.mobile}}</span>
+	       	   	</div>
+  	       	    <div>
+  	       	    <label>Address :</label>
+		       	   <span>{{user.address}}</span>
+		       	</div>
+	       	   <div>
+	       	   	<label>City :</label>
+		       	   <span>{{user.city}}</span>
+		       	</div>
+	       	   <div>
+	       	   	<label>State :</label>
+		       	   <span>{{user.state}}</span>
+	       	   	</div>
+       		</li>
+       </ul>
+    </div> 
 </body>
 </html>
