@@ -17,37 +17,64 @@
     <div class="col-md-2"></div>
      <div class="col-md-4">
       <h3> Sign up : </h3>
-      <form  #form="ngForm"  (ngSubmit)='valid(form)' >      
+      <form  #form="ngForm"  (ngSubmit)='valid(form)' novalidate >      
         <div class="form-group ">
           <label>Full Name :  </label>
-          <input class="form-control" ngModel name="fullName" placeholder="Full Name">
+          <input class="form-control" [(ngModel)]="form.fullName"  name="fullName" placeholder="Full Name" required  #fullName="ngModel">
+          <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" style="color: red;"> 
+            <div *ngIf="fullName.errors.required">*FullName is required</div>
+          </div>
         </div>
         <div class="form-group">
           <label>Email : </label>
-          <input  name="email" ngModel  class="form-control" placeholder="Email">
+          <input type="email" name="email" [(ngModel)]="form.email"  class="form-control" placeholder="Email" required pattern="" #email="ngModel">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" style="color: red;">
+            <div *ngIf="email.errors.required">*Email is required</div>
+            <!-- <div *ngIf="email.errors.email">*Invalid email</div> -->
+          </div>
         </div>
          <div class="form-group">
           <label>Password : </label>
-          <input  type="password"  name="password" ngModel  class="form-control" placeholder="Password">
+          <input  type="password"  name="password" [(ngModel)]="form.password"  class="form-control" placeholder="Password" required minlength="4" maxlength="16" #password="ngModel">
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" style="color: red">
+            <div *ngIf="password.errors.required">*Password is required</div>
+            <div *ngIf="password.errors.minlength">*Password length must more than minimum four charecters</div>
+            <div *ngIf="password.errors.maxlength">*Password length must more than maxmumn sixteen charecters</div>
+          </div>
         </div>
         <div class="form-group">
           <label>Mobile# : </label>
-          <input name="mobile"    ngModel  class="form-control" placeholder="Mobile#">
+          <input name="mobile" [(ngModel)]="form.mobile" class="form-control" placeholder="Mobile#" required pattern="/^\+?\d{10}$/" minlength="10" maxlength="10" #mobile="ngModel">
+          <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)"  style="color: red">
+            <div *ngIf="mobile.errors.required">*Mobile number is required</div>
+            <!-- <div *ngIf="mobile.errors.pattern">*Mobile number must numeric</div> -->
+            <div *ngIf="mobile.errors.minlength">*Mobile number must ten digit</div>
+          </div>
         </div>
         <div class="form-group">
           <label>Property Address :  </label>  
-          <input name="propertyAdd"    ngModel  class="form-control" placeholder="Property Address">
+          <input name="propertyAdd" [(ngModel)]="form.propertyAdd"  class="form-control" placeholder="Property Address" #propertyAdd="ngModel">
+          <div *ngIf="propertyAdd.invalid && (propertyAdd.dirty || propertyAdd.touched)"  style="color: red">
+            <div *ngIf="propertyAdd.errors.required">*Address is required</div>
+            <!-- <div *ngIf="mobile.errors.pattern">*Mobile number must numeric</div> -->
+          </div>
         </div>
         <div class="form-group">
           <label>Cities : </label>
-          <select name="city"  ngModel  class="form-control" placeholder="City" >
-            <option value="">Please select a City</option>
+          <select name="city" [(ngModel)]="form.city"  class="form-control" placeholder="City" required #city="ngModel" >
+            <option value="" >Please select a City</option>
             <option *ngFor="let city of cities"  [value]="city.name">{{city.name}}</option>
           </select>
+          <div *ngIf="city.invalid && (city.dirty || city.touched)"  style="color: red">
+            <div *ngIf="city.errors.required">*city is required</div>
+          </div>
         </div>
         <div class="form-group">
           <label>State : </label> 
-          <input type="text" name="state"  ngModel  class="form-control" placeholder="State">
+          <input type="text" name="state"  [(ngModel)]="form.state"  class="form-control" placeholder="State" required #state="ngModel"> 
+          <div *ngIf="state.invalid && (state.dirty || state.touched)"  style="color: red">
+            <div *ngIf="state.errors.required">*state is required</div>
+          </div>
         </div>
         <div class="form-group text-right">
            <button class="btn btn-primary ">submit</button> 
