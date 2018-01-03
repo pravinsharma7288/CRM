@@ -1,0 +1,9 @@
+.text-data-overflow {
+	white-space: nowrap;
+    width: 25em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+agm-map {
+      height: 500px;
+    }

@@ -44,6 +44,7 @@ export class SignupDataComponent implements OnInit {
   }
   constructor(private http : Http) { 
   }
+
   ngOnInit() {
   }
 }

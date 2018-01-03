@@ -10,10 +10,17 @@ import 'rxjs/add/operator/map';
 })
 export class UsersComponent implements OnInit {
  private apiUrl = "http://localhost:8888/user"
+  lat: number = 18.591955;
+  lng: number = 73.783826;
+  zoom: number = 15;
+  mapTypeId: 'roadmap'|'hybrid'|'satellite'|'terrain'|string = 'roadmap'
+
  userList : userData[] = [];
- loadPage(){
-  console.log(".....................sgs");
- }  
+
+ editUser(userData) {
+   console.log("here I am .....................",userData);
+  }
+
   constructor(private http: Http) { 
 	  http.get(this.apiUrl).map((res:Response)=>res.json()).subscribe(data => {
         //console.log(data);

@@ -5,35 +5,57 @@
 </head>
 <body>
  	 <!-- <pre>{{userList | json}}</pre> -->
-	<div class="container" style="overflow-y: auto; height: 500; " >
-       <ul class=" col-md-12 list-group">
-       	<li class="list-group-item col-md-4" *ngFor="let user of userList">
-	 	      <div>
-	 	      	<label>Name :	</label>
-		       	   <span >{{user.name}}</span>
+	<div class="container" >
+	<div  class="col-md-12 " style=" overflow-y:scroll; height: 550px !important; " >
+       <ul class="col-md-12 list-group">
+       	<li class="list-group-item col-md-4 " *ngFor="let user of userList">
+	 	      <div >
+	 	      	<div class="col-md-10">
+	 	      	   <label>Name :	</label>
+		       	   <span title="{{user.name}}">{{user.name}}</span>
+		       	</div>
+		       	<div class="col-md-2">
+	  	            <button class="btn btn-primary" (click)='editUser(user)'>edit</button> 
+ 				</div>
 	       	   </div>
-	       	   <div>
-	       	   	<label>Email :</label>
-		       	  <span>{{user.email}}</span>
-	       	   </div>
-	       	   <div>
-	       	   	<label>Mobile :</label>
-		       	   <span>{{user.mobile}}</span>
+	       	   <div class="text-data-overflow">
+		       	   	<div class="col-md-12">
+			       	   	<label>Email :</label>
+				       	<span title="{{user.email}}">{{user.email}}</span>
+		       	   	</div>
+		       	</div>
+	       	    <div class="text-data-overflow">
+	       	   		<div class="col-md-12">
+			       	   	<label>Mobile :</label>
+				       	<span title="{{user.mobile}}">{{user.mobile}}</span>
+				    </div>
 	       	   	</div>
-  	       	    <div>
-  	       	    <label>Address :</label>
-		       	   <span>{{user.address}}</span>
+  	       	    <div class="text-data-overflow">
+  	       	    	<div class="col-md-12">
+		  	       	    <label>Address :</label>
+				       	<a><span title="{{user.address}}" >{{user.address}}</span></a>
+				    </div>
 		       	</div>
-	       	   <div>
-	       	   	<label>City :</label>
-		       	   <span>{{user.city}}</span>
+	       	   <div class="text-data-overflow">
+	       	   		<div class="col-md-12">
+			       	   	<label>City :</label>
+				       	<span title="{{user.city}}">{{user.city}}</span>
+				    </div>
 		       	</div>
-	       	   <div>
-	       	   	<label>State :</label>
-		       	   <span>{{user.state}}</span>
+	       	   <div class="text-data-overflow">
+		       	   	<div class="col-md-12">
+		       	   		<label>State :</label>
+			       	   	<span title="{{user.state}}">{{user.state}}</span>
+			        </div>
 	       	   	</div>
        		</li>
        </ul>
+   </div>
+    <div class="col-md-12">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [mapTypeId]="mapTypeId">
+  			<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+		</agm-map>
     </div> 
+   </div>
 </body>
 </html>

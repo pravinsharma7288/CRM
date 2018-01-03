@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { SignupDataComponent } from './signup-data/signup-data.component';
 import { UsersComponent } from './users/users.component';
 import { appRouterModule } from './app.routes';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -18,7 +19,10 @@ import { appRouterModule } from './app.routes';
     BrowserModule,
     FormsModule,
     HttpModule,
-    appRouterModule
+    appRouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDwWaRFEuCF8OVKKGjzwjkeQRHh9t44pXI'
+    })    
   ],
   providers: [],
   bootstrap: [AppComponent]
